@@ -9,7 +9,7 @@ class Supplier extends BaseModel
 {
     public function all()
     {
-        $sql = "SELECT * FROM suppliers";
+        $sql = "SELECT * FROM users";
         $statement = $this->db->prepare($sql);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_CLASS, '\App\Models\Supplier');
@@ -56,7 +56,7 @@ class Supplier extends BaseModel
     {
         $full_name = $format;
         $full_name = str_replace('{first_name}', $this->getFirstName(), $full_name);
-        $full_name = str_replace('{last_name}', $this->geLastName(), $full_name);
+        $full_name = str_replace('{last_name}', $this->getLastName(), $full_name);
         return $full_name;
     }
 }
